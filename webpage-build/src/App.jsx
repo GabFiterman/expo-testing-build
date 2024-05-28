@@ -7,7 +7,7 @@ function App() {
     return (
         <div className='webpageView'>
             <h1>Testing Webpage</h1>
-            <h2>Build 1</h2>
+            <h2>Build 2</h2>
             <div className="rowContainer">
                 <button onClick={() => setCount((count) => count - 1)}>
                     -
