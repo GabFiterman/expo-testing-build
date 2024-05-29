@@ -4,7 +4,7 @@ import { WebView } from 'react-native-webview';
 
 export default function App() {
     // const WEBVIEW_URI="http://192.168.1.5:4173";
-    const WEBVIEW_URI="https://webearts.com";
+    const WEBVIEW_URI="https://homolog.webearts.com";
 
     return (
         <View style={styles.container}>
