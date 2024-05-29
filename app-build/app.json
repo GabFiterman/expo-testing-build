@@ -2,7 +2,7 @@
   "expo": {
     "name": "app-build",
     "slug": "app-build",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -27,7 +27,8 @@
     "extra": {
       "eas": {
         "projectId": "832cc71e-41c0-41e1-9802-d053f5ea836e"
-      }
+      },
+      "expo.webBrowserHost": "*"
     },
     "owner": "gabfiterman"
   }

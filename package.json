@@ -5,13 +5,7 @@
     "scripts": {
         "start:app": "npm run start --prefix app-build",
         "start:web": "npm run start --prefix webpage-build",
-        "build:app": "npm run build --prefix app-build",
-        "build-test:app": "npm run build-test:android --prefix app-build",
-        "build:web": "npm run build --prefix webpage-build",
-        "serve:web": "pm2 start ecosystem.config.js --env development",
-        "stop:serve:web": "pm2 stop serve-web"
-    },
-    "dependencies": {
-        "serve": "^14.2.3"
+        "build:app": "npm run build-test:android --prefix app-build",
+        "build:web": "npm run build --prefix webpage-build"
     }
 }
