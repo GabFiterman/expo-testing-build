@@ -3,13 +3,11 @@ import { StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 export default function App() {
-    // const WEBVIEW_URI="http://192.168.1.5:4173";
-    const WEBVIEW_URI="https://homolog.webearts.com";
-
+    const uri = process.env.EXPO_PUBLIC_WEBVIEW_URI;
     return (
         <View style={styles.container}>
             <WebView
-                source={{ uri: WEBVIEW_URI }}
+                source={{ uri: uri }}
                 style={{ flex: 1 }}
             />
         </View>
