@@ -1,13 +1,30 @@
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 import 'leaflet/dist/leaflet.css';
 
 const Map = () => {
-
-    return (
+    const [coordinates, setCoordinates] = useState();
+    const ZOOM_LEVEL = 13;
+    useEffect(() => {
+        setCoordinates(() => {
+            if (window.initialLocation) {
+                return {
+                    latitude: window.initialLocation.coords.latitude,
+                    longitude: window.initialLocation.coords.longitude,
+                };
+            } else {
+                return {
+                    latitude: -22.824,
+                    longitude: -43.523,
+                };
+            }
+        });
+    }, []);
+    return coordinates?.latitude && (
         <MapContainer
-            center={[51.505, -0.09]}
-            zoom={8}
+            center={[coordinates.latitude, coordinates?.longitude]}
+            zoom={ZOOM_LEVEL}
             scrollWheelZoom={false}
             style={{ width: '100%', height: '100%' }}
         >

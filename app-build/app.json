@@ -1,35 +1,43 @@
 {
-  "expo": {
-    "name": "app-build",
-    "slug": "app-build",
-    "version": "1.2.1",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.gabfiterman.appbuild"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "832cc71e-41c0-41e1-9802-d053f5ea836e"
-      },
-      "expo.webBrowserHost": "*"
-    },
-    "owner": "gabfiterman"
-  }
+    "expo": {
+        "name": "app-build",
+        "slug": "app-build",
+        "version": "1.2.1",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "light",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "plugins": [
+            [
+                "expo-location",
+                {
+                    "locationAlwaysAndWhenInUsePermission": "Podes permitir que $(PRODUCT_NAME) use sua localização?."
+                }
+            ]
+        ],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "package": "com.gabfiterman.appbuild"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "832cc71e-41c0-41e1-9802-d053f5ea836e"
+            },
+            "expo.webBrowserHost": "*"
+        },
+        "owner": "gabfiterman"
+    }
 }
