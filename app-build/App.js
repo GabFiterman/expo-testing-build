@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { WebView } from 'react-native-webview';
-
 import getLocation from './services/get-location';
 
 export default function App() {
@@ -14,14 +13,25 @@ export default function App() {
     };
 
     useEffect(() => {
+        console.log('Starting location request...');
+        console.log('WebView URI:', uri);
         getLocation()
             .then((location) => {
+                console.log('Location obtained:', location);
                 setLocation(location);
                 setIsPermissionResolved(true);
             })
-            .catch(() => {
+            .catch((error) => {
+                console.error('Error getting location:', error);
                 setLocation({
-                    coords: { latitude: LOCATION_DEFAULT_LAT, longitude: LOCATION_DEFAULT_LNG },
+                    coords: {
+                        latitude: parseFloat(
+                            process.env.EXPO_PUBLIC_LOCATION_DEFAULT_LAT
+                        ),
+                        longitude: parseFloat(
+                            process.env.EXPO_PUBLIC_LOCATION_DEFAULT_LNG
+                        ),
+                    },
                 });
                 setIsPermissionResolved(true);
             });
@@ -61,6 +71,6 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 24,
         textAlign: 'center',
-        marginTop: 24,
-    }
+        marginTop: 20,
+    },
 });

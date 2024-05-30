@@ -20,13 +20,21 @@
             ]
         ],
         "ios": {
-            "supportsTablet": true
+            "buildNumber": "1.0.0",
+            "supportsTablet": true,
+            "bundleIdentifier": "com.mycompany.myapp",
+            "infoPlist": {
+                "NSLocationWhenInUseUsageDescription": "Este aplicativo utiliza sua localização para fornecer um melhor serviço.",
+                "NSLocationAlwaysUsageDescription": "Este aplicativo precisa de acesso à sua localização o tempo todo para funcionar corretamente."
+            }
         },
         "android": {
+            "versionCode": 1,
             "adaptiveIcon": {
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
             },
+            "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"],
             "package": "com.gabfiterman.appbuild"
         },
         "web": {
