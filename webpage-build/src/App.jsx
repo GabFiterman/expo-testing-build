@@ -1,27 +1,31 @@
-import { useState } from 'react';
-import '@/App.css';
+import { useContext, createElement } from 'react';
+import { Routes, BrowserRouter as Router, Route } from 'react-router-dom';
+import { GlobalContext } from '@/contexts';
+import { MenuHeader } from './components';
+
+import { ScreenContainer } from '@/components/generic-styled';
+
+// TODO: Próxima etapa dos testes 
+// -> Utilizar a localização do usuário para definir a página inicial
+// -> Botão na Home pra mandar Notificação por Push
 
 function App() {
-    const [count, setCount] = useState(0);
+    const { globalContext } = useContext(GlobalContext);
+
+    const pageRoutes = globalContext?.pages?.map((page, index) => {
+        const pageElement = createElement(page.component);
+
+        return <Route key={index} path={page.path} element={pageElement} />
+    });
 
     return (
-        <div className='webpageView'>
-            <h1>Testing Webpage</h1>
-            <h2>Build 3</h2>
-            <p>Neste teste, já espero ser um dos últimos.</p>
-            <p>Esta mesma build deve ser hospedada em diferentes lugares, e o app deve ser buildado apontando para a mesma.</p>
-            <p>Então adicionar um pouco da complexidade do app, como as tecnologias, e o principal: Testar os CORS, fazer requisição desta webpage pra API alertario. se precisar, teste fazer o servidor proxy.</p>
-            <div className="rowContainer">
-                <button onClick={() => setCount((count) => count - 1)}>
-                    -
-                </button>
-                <h3>count is {count}</h3> 
-                <button onClick={() => setCount((count) => count + 1)}>
-                    +
-                </button>
-            </div>
-        </div>
-    );
+        <Router>
+            <MenuHeader />
+            <ScreenContainer>
+                <Routes>{pageRoutes}</Routes>
+            </ScreenContainer>
+        </Router>
+    )
 }
 
 export default App;
