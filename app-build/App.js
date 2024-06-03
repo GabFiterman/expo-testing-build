@@ -44,6 +44,7 @@ export default function App() {
                 style={{ flex: 1 }}
                 originWhitelist={['*']}
                 onMessage={onMessage}
+                clearCache={true}
                 injectedJavaScript={`
                     window.initialLocation = ${JSON.stringify(location)};
                     window.postMessage = function(data) {
