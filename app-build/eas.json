@@ -8,17 +8,32 @@
             "distribution": "internal",
             "android": {
                 "buildType": "apk"
+            },
+            "env": {
+                "EXPO_PUBLIC_WEBVIEW_URI": "https://homolog.webearts.com",
+                "EXPO_PUBLIC_LOCATION_DEFAULT_LAT": "-22.824",
+                "EXPO_PUBLIC_LOCATION_DEFAULT_LNG": "-47.073"
             }
         },
         "preview": {
             "distribution": "internal",
             "android": {
                 "buildType": "apk"
+            },
+            "env": {
+                "EXPO_PUBLIC_WEBVIEW_URI": "https://homolog.webearts.com",
+                "EXPO_PUBLIC_LOCATION_DEFAULT_LAT": "-22.824",
+                "EXPO_PUBLIC_LOCATION_DEFAULT_LNG": "-47.073"
             }
         },
         "production": {
             "android": {
                 "buildType": "apk"
+            },
+            "env": {
+                "EXPO_PUBLIC_WEBVIEW_URI": "https://homolog.webearts.com",
+                "EXPO_PUBLIC_LOCATION_DEFAULT_LAT": "-22.824",
+                "EXPO_PUBLIC_LOCATION_DEFAULT_LNG": "-47.073"
             }
         }
     },

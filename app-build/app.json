@@ -2,7 +2,7 @@
     "expo": {
         "name": "app-build",
         "slug": "app-build",
-        "version": "1.2.1",
+        "version": "1.3.0",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
         "userInterfaceStyle": "light",
@@ -11,18 +11,11 @@
             "resizeMode": "contain",
             "backgroundColor": "#ffffff"
         },
-        "plugins": [
-            [
-                "expo-location",
-                {
-                    "locationAlwaysAndWhenInUsePermission": "Podes permitir que $(PRODUCT_NAME) use sua localização?."
-                }
-            ]
-        ],
+        "plugins": ["expo-location"],
         "ios": {
             "buildNumber": "1.0.0",
             "supportsTablet": true,
-            "bundleIdentifier": "com.mycompany.myapp",
+            "bundleIdentifier": "com.gabfiterman.appbuild",
             "infoPlist": {
                 "NSLocationWhenInUseUsageDescription": "Este aplicativo utiliza sua localização para fornecer um melhor serviço.",
                 "NSLocationAlwaysUsageDescription": "Este aplicativo precisa de acesso à sua localização o tempo todo para funcionar corretamente."
@@ -30,12 +23,15 @@
         },
         "android": {
             "versionCode": 1,
+            "package": "com.gabfiterman.appbuild",
             "adaptiveIcon": {
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
             },
-            "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"],
-            "package": "com.gabfiterman.appbuild"
+            "permissions": [
+                "android.permission.INTERNET",
+                "android.permission.ACCESS_FINE_LOCATION"
+            ]
         },
         "web": {
             "favicon": "./assets/favicon.png"
