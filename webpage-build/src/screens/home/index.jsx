@@ -1,10 +1,12 @@
-import { HomeContainer } from "./StyledComponents";
+import { HomeContainer } from './StyledComponents';
 const Home = () => {
     return (
         <HomeContainer>
-            <h1>Home Page v0.3.1</h1>
-            <p>Testando se nova build na webpage também atualiza o APK</p>
-            <p>Último teste desse. Próximo já vai ser com chamada pra API.</p>
+            <h1>Home Page v0.4.0</h1>
+            <p>
+                Testes finalizando, agora só confiar que vai dar tudo certo com
+                a build e disponibilização do proxy
+            </p>
         </HomeContainer>
     );
 };

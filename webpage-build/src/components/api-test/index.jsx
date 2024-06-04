@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import axios from 'axios';
 
 import { GlobalContext } from '@/contexts/globalContext';
+import { ApiTestContainer } from './StyledComponents';
 
 const ApiTest = () => {
     const [loading, setLoading] = useState(false);
@@ -13,7 +14,7 @@ const ApiTest = () => {
     const apiPass = import.meta.env.VITE_API_PASSWORD;
 
     const getHomeData = async (latitude, longitude) => {
-        const endpoint = '/api/home';
+        const endpoint = 'http://localhost:3000/api/home';
         const credentials = btoa(`${apiUser}:${apiPass}`);
 
         const response = await axios.get(
@@ -51,24 +52,26 @@ const ApiTest = () => {
     };
 
     return (
-        <div>
-            <button onClick={fetchData}>Nova requisição</button>
-            <button onClick={clearData}>Limpar</button>
+        <ApiTestContainer>
+            <div className='btn-group'>
+                <button onClick={fetchData}>Nova requisição</button>
+                <button onClick={clearData}>Limpar</button>
+            </div>
+
             {loading && <p>Carregando...</p>}
             {error && <p>{error}</p>}
             {data && (
-                <>
-                    <div>
-                        <p>
-                            <strong>Nome:</strong> {data.estacao.nome}
-                        </p>
-                        <p>
-                            <strong>Temperatura:</strong> {parseFloat(data.estacao.temperatura).toFixed(2)} °C
-                        </p>
-                    </div>
-                </>
+                <div>
+                    <p>
+                        <strong>Nome:</strong> {data.estacao.nome}
+                    </p>
+                    <p>
+                        <strong>Temperatura:</strong>{' '}
+                        {parseFloat(data.estacao.temperatura).toFixed(2)} °C
+                    </p>
+                </div>
             )}
-        </div>
+        </ApiTestContainer>
     );
 };
 
