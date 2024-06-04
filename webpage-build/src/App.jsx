@@ -5,9 +5,7 @@ import { MenuHeader } from './components';
 
 import { ScreenContainer } from '@/components/generic-styled';
 
-// TODO: Próxima etapa dos testes 
-// -> Utilizar a localização do usuário para definir a página inicial
-// -> Botão na Home pra mandar Notificação por Push
+import './App.css';
 
 function App() {
     const { globalContext } = useContext(GlobalContext);

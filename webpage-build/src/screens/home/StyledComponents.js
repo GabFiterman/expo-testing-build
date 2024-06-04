@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
-    color: #2bc5b8;
+    color: #70b31d;
     display: flex;
     flex-direction: column;
     justify-content: center;
