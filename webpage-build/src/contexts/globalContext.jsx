@@ -31,11 +31,12 @@ const pages = [
     },
 ];
 
-const initialState ={ 
+const initialState = {
     isLoading: false,
+    coordinates: { latitude: -22.824, longitude: -43.523 },
     pages: pages,
     currentPage: pages[0],
-}
+};
 
 const pageByIndex = (index) => pages.find((page) => page.index === index);
 
@@ -46,14 +47,19 @@ const reducer = (globalContext, action) => {
                 ...globalContext,
                 isLoading: action.payload,
             };
+        case 'SET_COORDINATES':
+            return { ...globalContext, coordinates: action.payload };
         case 'SET_CURRENT_PAGE':
-                return { ...globalContext, currentPage: action.payload };
+            return { ...globalContext, currentPage: action.payload };
         case 'SET_CURRENT_PAGE_BY_INDEX':
-            return { ...globalContext, currentPage: pageByIndex(action.payload) };
+            return {
+                ...globalContext,
+                currentPage: pageByIndex(action.payload),
+            };
         default:
             throw new Error(`Unhandled action type: ${action.type}`);
     }
-}
+};
 
 export const GlobalContext = createContext(initialState);
 
@@ -64,8 +70,8 @@ export const GlobalContextProvider = ({ children }) => {
         <GlobalContext.Provider value={{ globalContext, globalDispatch }}>
             {children}
         </GlobalContext.Provider>
-    )
-}
+    );
+};
 
 GlobalContextProvider.propTypes = {
     children: PropTypes.node.isRequired,
