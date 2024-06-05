@@ -14,7 +14,7 @@ const ApiTest = () => {
     const apiPass = import.meta.env.VITE_API_PASSWORD;
 
     const getHomeData = async (latitude, longitude) => {
-        const endpoint = 'http://localhost:3000/api/home';
+        const endpoint = 'https://proxy-server-chi.vercel.app/api/home';
         const credentials = btoa(`${apiUser}:${apiPass}`);
 
         const response = await axios.get(

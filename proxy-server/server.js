@@ -19,9 +19,8 @@ app.get('*', function (req, res) {
     );
 });
 
-async function startServer() {
-    const server = await app.listen(3000);
-    console.log('Proxy Server started at port 3000');
-}
+app.listen(3000, () => {
+    console.log('Proxy server is running on port 3000');
+});
 
-startServer();
+module.exports = app;
